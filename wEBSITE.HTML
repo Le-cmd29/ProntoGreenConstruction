@@ -1,0 +1,718 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pronto Green Construction Ltd - Building Quality with Sustainability</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        header {
+            background: #fff;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 0;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #2d5016;
+            display: flex;
+            align-items: center;
+        }
+
+        .logo::before {
+            content: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="40" height="40"><circle cx="50" cy="50" r="48" fill="none" stroke="%2300B050" stroke-width="3"/><circle cx="50" cy="50" r="42" fill="none" stroke="%2300B050" stroke-width="2"/><path d="M30 70V45L40 35L50 45V70M35 70V50M45 70V50" fill="none" stroke="%2300B050" stroke-width="2.5"/><path d="M45 70V30L55 20L65 30V70M50 70V35M60 70V35" fill="none" stroke="%2300B050" stroke-width="2.5"/><path d="M60 70V40L70 30L80 40V70M65 70V45M75 70V45" fill="none" stroke="%2300B050" stroke-width="2.5"/><rect x="30" y="70" width="50" height="5" fill="%2300B050"/></svg>');
+            margin-right: 10px;
+            display: inline-block;
+            vertical-align: middle;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #333;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: #2d5016;
+        }
+
+        .cta-header {
+            background: #2d5016;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+            text-decoration: none;
+            transition: background 0.3s;
+        }
+
+        .cta-header:hover {
+            background: #1e3309;
+        }
+
+        /* Main content */
+        main {
+            margin-top: 80px;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(45, 80, 22, 0.8), rgba(45, 80, 22, 0.8)), url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 600"><rect fill="%23f0f0f0" width="1200" height="600"/><path fill="%23ddd" d="M0 400h1200v200H0z"/><rect fill="%23ccc" x="100" y="200" width="300" height="250"/><rect fill="%23bbb" x="450" y="150" width="350" height="300"/><rect fill="%23aaa" x="850" y="180" width="250" height="270"/><text x="600" y="320" text-anchor="middle" fill="%23666" font-size="24" font-family="Arial">Professional Construction Services</text></svg>');
+            background-size: cover;
+            background-position: center;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            color: white;
+            text-align: center;
+        }
+
+        .hero-content h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+        }
+
+        .hero-content p {
+            font-size: 1.5rem;
+            margin-bottom: 2rem;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: #4CAF50;
+            color: white;
+            padding: 15px 30px;
+            font-size: 1.2rem;
+            text-decoration: none;
+            border-radius: 8px;
+            transition: all 0.3s;
+            box-shadow: 0 4px 15px rgba(76, 175, 80, 0.3);
+        }
+
+        .cta-button:hover {
+            background: #45a049;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(76, 175, 80, 0.4);
+        }
+
+        /* Services Section */
+        .services {
+            padding: 80px 0;
+            background: #f9f9f9;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            color: #2d5016;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+
+        .service-card {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            text-align: center;
+            transition: transform 0.3s;
+        }
+
+        .service-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .service-icon {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            color: #2d5016;
+        }
+
+        .service-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            color: #2d5016;
+        }
+
+        .service-card p {
+            margin-bottom: 20px;
+            color: #666;
+        }
+
+        .service-cta {
+            background: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background 0.3s;
+        }
+
+        .service-cta:hover {
+            background: #45a049;
+        }
+
+        /* About Section */
+        .about {
+            padding: 80px 0;
+            background: white;
+        }
+
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            align-items: center;
+        }
+
+        .about-text h2 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            color: #2d5016;
+        }
+
+        .about-text p {
+            font-size: 1.1rem;
+            margin-bottom: 20px;
+            color: #666;
+        }
+
+        .about-image {
+            background: #f0f0f0;
+            height: 400px;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            color: #666;
+        }
+
+        /* Quote Form Section */
+        .quote-form {
+            padding: 80px 0;
+            background: #2d5016;
+            color: white;
+        }
+
+        .quote-form h2 {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+        }
+
+        .form-container {
+            max-width: 600px;
+            margin: 0 auto;
+            background: rgba(255,255,255,0.1);
+            padding: 40px;
+            border-radius: 10px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: 500;
+        }
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 12px;
+            border: none;
+            border-radius: 5px;
+            font-size: 1rem;
+        }
+
+        .form-group textarea {
+            height: 120px;
+            resize: vertical;
+        }
+
+        .submit-btn {
+            background: #4CAF50;
+            color: white;
+            padding: 15px 30px;
+            border: none;
+            border-radius: 5px;
+            font-size: 1.1rem;
+            cursor: pointer;
+            width: 100%;
+            transition: background 0.3s;
+        }
+
+        .submit-btn:hover {
+            background: #45a049;
+        }
+
+        /* Contact Section */
+        .contact {
+            padding: 80px 0;
+            background: #f9f9f9;
+        }
+
+        .contact-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+        }
+
+        .contact-info h3 {
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+            color: #2d5016;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+
+        .contact-item span {
+            font-size: 1.2rem;
+            margin-right: 10px;
+            color: #2d5016;
+        }
+
+        .map-placeholder {
+            background: #ddd;
+            height: 300px;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #666;
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* Footer */
+        footer {
+            background: #2d5016;
+            color: white;
+            padding: 40px 0 20px;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-bottom: 30px;
+        }
+
+        .footer-section h3 {
+            margin-bottom: 20px;
+            color: #4CAF50;
+        }
+
+        .footer-section a {
+            color: #ccc;
+            text-decoration: none;
+            display: block;
+            margin-bottom: 10px;
+            transition: color 0.3s;
+        }
+
+        .footer-section a:hover {
+            color: #4CAF50;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid #444;
+            color: #ccc;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .hero-content h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero-content p {
+                font-size: 1.2rem;
+            }
+
+            .about-content {
+                grid-template-columns: 1fr;
+            }
+
+            .contact-content {
+                grid-template-columns: 1fr;
+            }
+
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Sticky CTA */
+        .sticky-cta {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: #4CAF50;
+            color: white;
+            padding: 15px 25px;
+            border-radius: 50px;
+            text-decoration: none;
+            box-shadow: 0 4px 20px rgba(76, 175, 80, 0.3);
+            z-index: 1000;
+            transition: all 0.3s;
+        }
+
+        .sticky-cta:hover {
+            background: #45a049;
+            transform: scale(1.1);
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <nav class="container">
+            <div class="logo">Pronto Green Construction Ltd</div>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+            <a href="#quote" class="cta-header">Get a Quote</a>
+        </nav>
+    </header>
+
+    <!-- Main Content -->
+    <main>
+        <!-- Hero Section -->
+        <section id="home" class="hero">
+            <div class="container">
+                <div class="hero-content">
+                    <h1>Building Quality with Sustainability</h1>
+                    <p>Professional construction services you can trust</p>
+                    <a href="#quote" class="cta-button">Get a Free Quote</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Services Section -->
+        <section id="services" class="services">
+            <div class="container">
+                <h2 class="section-title">Our Services</h2>
+                <div class="services-grid">
+                    <div class="service-card">
+                        <div class="service-icon">🏠</div>
+                        <h3>Roof Systems Installed</h3>
+                        <p>Complete roof installation services including pitched and flat roofing systems with premium materials and expert craftsmanship.</p>
+                        <a href="#quote" class="service-cta">Request a Quote</a>
+                    </div>
+                    <div class="service-card">
+                        <div class="service-icon">🔧</div>
+                        <h3>Roof Repairs</h3>
+                        <p>Professional roof repair services to fix leaks, replace damaged tiles, and restore your roof's integrity and weatherproofing.</p>
+                        <a href="#quote" class="service-cta">Request a Quote</a>
+                    </div>
+                    <div class="service-card">
+                        <div class="service-icon">⚡</div>
+                        <h3>Electrical</h3>
+                        <p>Certified electrical services including wiring, fuse box installation, lighting, and electrical safety inspections by qualified electricians.</p>
+                        <a href="#quote" class="service-cta">Request a Quote</a>
+                    </div>
+                    <div class="service-card">
+                        <div class="service-icon">🚿</div>
+                        <h3>Plumbing</h3>
+                        <p>Complete plumbing solutions from pipe installation to bathroom fitting, leak repairs, and heating system maintenance.</p>
+                        <a href="#quote" class="service-cta">Request a Quote</a>
+                    </div>
+                    <div class="service-card">
+                        <div class="service-icon">🧱</div>
+                        <h3>Brick Laying</h3>
+                        <p>Expert bricklaying services for walls, extensions, and structural work using traditional techniques and modern standards.</p>
+                        <a href="#quote" class="service-cta">Request a Quote</a>
+                    </div>
+                    <div class="service-card">
+                        <div class="service-icon">🛁</div>
+                        <h3>Tiles & Bathrooms</h3>
+                        <p>Professional tiling and complete bathroom installation services, from design to completion with premium fixtures and finishes.</p>
+                        <a href="#quote" class="service-cta">Request a Quote</a>
+                    </div>
+                    <div class="service-card">
+                        <div class="service-icon">🏢</div>
+                        <h3>Flooring</h3>
+                        <p>Quality flooring installation including hardwood, laminate, tile, and carpet with professional preparation and finishing.</p>
+                        <a href="#quote" class="service-cta">Request a Quote</a>
+                    </div>
+                    <div class="service-card">
+                        <div class="service-icon">🏗️</div>
+                        <h3>Fences</h3>
+                        <p>Custom fence installation and repair services for residential and commercial properties with various materials and styles.</p>
+                        <a href="#quote" class="service-cta">Request a Quote</a>
+                    </div>
+                    <div class="service-card">
+                        <div class="service-icon">🎨</div>
+                        <h3>Painting</h3>
+                        <p>Interior and exterior painting services with premium paints, professional preparation, and meticulous attention to detail.</p>
+                        <a href="#quote" class="service-cta">Request a Quote</a>
+                    </div>
+                    <div class="service-card">
+                        <div class="service-icon">🏠</div>
+                        <h3>Plastering</h3>
+                        <p>Expert plastering services for walls and ceilings, including repair work and smooth finishing for paint-ready surfaces.</p>
+                        <a href="#quote" class="service-cta">Request a Quote</a>
+                    </div>
+                    <div class="service-card">
+                        <div class="service-icon">🏡</div>
+                        <h3>Rendering</h3>
+                        <p>Professional exterior rendering services to protect and beautify your property with durable, weather-resistant finishes.</p>
+                        <a href="#quote" class="service-cta">Request a Quote</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- About Section -->
+        <section id="about" class="about">
+            <div class="container">
+                <div class="about-content">
+                    <div class="about-text">
+                        <h2>About Pronto Green Construction Ltd</h2>
+                        <p>With years of experience in the construction industry, Pronto Green Construction Ltd has built a reputation for reliability, quality, and sustainability. Our team of skilled professionals is committed to delivering exceptional results on every project, from small repairs to complete renovations.</p>
+                        <p>We believe in combining traditional craftsmanship with modern sustainable practices, ensuring that every project not only meets the highest standards but also contributes to a greener future. Our comprehensive range of services means we can handle all aspects of your construction needs under one roof.</p>
+                        <p>At Pronto Green Construction Ltd, we pride ourselves on clear communication, fair pricing, and delivering projects on time and within budget. Your satisfaction is our priority, and we're not happy until you are.</p>
+                    </div>
+                    <div class="about-image">
+                        <img src="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 300'><rect fill='%23f8f9fa' width='400' height='300'/><rect fill='%23e9ecef' x='50' y='50' width='300' height='200' rx='10'/><rect fill='%23dee2e6' x='70' y='80' width='100' height='80'/><rect fill='%23ced4da' x='200' y='70' width='120' height='90'/><rect fill='%23adb5bd' x='220' y='180' width='80' height='60'/><circle fill='%236c757d' cx='120' cy='120' r='15'/><path fill='%23495057' d='M110 135h20v10h-20z'/><text x='200' y='280' text-anchor='middle' fill='%236c757d' font-size='14' font-family='Arial'>Professional Interior Design Work</text></svg>" alt="Professional Team Photo - Luxury Interior Design" style="width: 100%; height: 100%; object-fit: cover; border-radius: 10px;">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Quote Form Section -->
+        <section id="quote" class="quote-form">
+            <div class="container">
+                <h2>Get Your Free Quote Today</h2>
+                <div class="form-container">
+                    <form id="quoteForm">
+                        <div class="form-group">
+                            <label for="name">Full Name *</label>
+                            <input type="text" id="name" name="name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email Address *</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="phone">Phone Number *</label>
+                            <input type="tel" id="phone" name="phone" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="service">Service Type *</label>
+                            <select id="service" name="service" required>
+                                <option value="">Select a service...</option>
+                                <option value="roof-systems">Roof Systems Installed</option>
+                                <option value="roof-repairs">Roof Repairs</option>
+                                <option value="electrical">Electrical</option>
+                                <option value="plumbing">Plumbing</option>
+                                <option value="brick-laying">Brick Laying</option>
+                                <option value="tiles-bathrooms">Tiles & Bathrooms</option>
+                                <option value="flooring">Flooring</option>
+                                <option value="fences">Fences</option>
+                                <option value="painting">Painting</option>
+                                <option value="plastering">Plastering</option>
+                                <option value="rendering">Rendering</option>
+                                <option value="other">Other</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="description">Project Description</label>
+                            <textarea id="description" name="description" placeholder="Please provide details about your project..."></textarea>
+                        </div>
+                        <button type="submit" class="submit-btn">Get My Free Quote</button>
+                    </form>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="contact">
+            <div class="container">
+                <h2 class="section-title">Contact Us</h2>
+                <div class="contact-content">
+                    <div class="contact-info">
+                        <h3>Get in Touch</h3>
+                        <div class="contact-item">
+                            <span>📧</span>
+                            <div>
+                                <strong>Email:</strong><br>
+                                <a href="mailto:Faridsamy049@gmail.com">Faridsamy049@gmail.com</a>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <span>📞</span>
+                            <div>
+                                <strong>Phone:</strong><br>
+                                <a href="tel:07745207418">07745 207418</a>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <span>🕐</span>
+                            <div>
+                                <strong>Business Hours:</strong><br>
+                                Monday - Friday: 8:00 AM - 6:00 PM<br>
+                                Saturday: 9:00 AM - 4:00 PM<br>
+                                Sunday: Emergency calls only
+                            </div>
+                        </div>
+                    </div>
+                    <div class="map-placeholder">
+                        <img src="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 300'><rect fill='%23e8f5e8' width='400' height='300'/><path fill='%23c8e6c9' d='M0 150 Q100 120 200 150 T400 140 V300 H0 Z'/><path fill='%23a5d6a7' d='M0 180 Q150 160 300 180 L400 185 V300 H0 Z'/><circle fill='%234caf50' cx='200' cy='150' r='8'/><path fill='%23fff' d='M196 146 L200 142 L204 146 L200 154 Z'/><text x='200' y='180' text-anchor='middle' fill='%232e7d32' font-size='12' font-family='Arial'>London &amp; Surrounding Areas</text><path fill='%238bc34a' stroke='%234caf50' stroke-width='1' d='M50 100 L80 90 L120 110 L150 95 L180 105 L220 90 L250 100 L290 85 L320 95 L350 80'/><path fill='%238bc34a' stroke='%234caf50' stroke-width='1' d='M30 200 L90 210 L140 195 L190 205 L240 190 L280 200 L330 185 L370 195'/></svg>" alt="Service Area Map - London" style="width: 100%; height: 100%; object-fit: cover; border-radius: 10px;">
+                        <div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); text-align: center; color: #2e7d32; font-weight: bold;">
+                            <p>📍 Service Coverage Area</p>
+                            <p>London & Surrounding Areas</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3><svg style="width: 30px; height: 30px; vertical-align: middle; margin-right: 10px;" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="50" cy="50" r="48" fill="none" stroke="#4CAF50" stroke-width="3"/><circle cx="50" cy="50" r="42" fill="none" stroke="#4CAF50" stroke-width="2"/><path d="M30 70V45L40 35L50 45V70M35 70V50M45 70V50" fill="none" stroke="#4CAF50" stroke-width="2.5"/><path d="M45 70V30L55 20L65 30V70M50 70V35M60 70V35" fill="none" stroke="#4CAF50" stroke-width="2.5"/><path d="M60 70V40L70 30L80 40V70M65 70V45M75 70V45" fill="none" stroke="#4CAF50" stroke-width="2.5"/><rect x="30" y="70" width="50" height="5" fill="#4CAF50"/></svg>Pronto Green Construction Ltd</h3>
+                    <p>Building Quality with Sustainability</p>
+                    <p>Professional construction services you can trust across London and surrounding areas.</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <a href="#home">Home</a>
+                    <a href="#services">Services</a>
+                    <a href="#about">About Us</a>
+                    <a href="#contact">Contact</a>
+                    <a href="#quote">Get a Quote</a>
+                </div>
+                <div class="footer-section">
+                    <h3>Contact Info</h3>
+                    <a href="tel:07745207418">📞 07745 207418</a>
+                    <a href="mailto:Faridsamy049@gmail.com">📧 Faridsamy049@gmail.com</a>
+                    <p>🏢 London & Surrounding Areas</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Follow Us</h3>
+                    <a href="#">Facebook</a>
+                    <a href="#">Instagram</a>
+                    <a href="#">LinkedIn</a>
+                    <a href="#">Google Reviews</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Pronto Green Construction Ltd. All rights reserved. | <a href="#" style="color: #4CAF50;">Terms & Conditions</a> | <a href="#" style="color: #4CAF50;">Privacy Policy</a></p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Sticky CTA Button -->
+    <a href="#quote" class="sticky-cta">💬 Get Quote</a>
+
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Form submission handler
+        document.getElementById('quoteForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Get form data
+            const formData = new FormData(this);
+            const name = formData.get('name');
+            
+            // Show success message
+            alert(`Thanks ${name}! We'll be in touch shortly to discuss your project.`);
+            
+            // Reset form
+            this.reset();
+            
+            // In a real Wix implementation, you would integrate with Wix Forms or your preferred form handler
+        });
+
+        // Add some interactive animations
+        window.addEventListener('scroll', function() {
+            const header = document.querySelector('header');
+            if (window.scrollY > 100) {
+                header.style.background = 'rgba(255, 255, 255, 0.95)';
+                header.style.backdropFilter = 'blur(10px)';
+            } else {
+                header.style.background = '#fff';
+                header.style.backdropFilter = 'none';
+            }
+        });
+    </script>
+</body>
+</html>
